@@ -6,15 +6,19 @@
     <div class="card-body">
         <form action="post">
             <div class="mb-3 row">
-                <label for="username" class="col-sm-2 col-form-label">Username</label>
+                <!-- <label for="username" class="col-sm-2 col-form-label">Username</label> -->
+                <label for="{{ login_form.username.id_for_label }}" class="col-sm-2 col-form-label">Username</label>
                 <div class="col-sm-10">
-                    <input id="username" name="username" type="text" placeholder="username" class="form-control">
+                    <!-- <input id="username" name="username" type="text" placeholder="username" class="form-control"> -->
+                    {{ login_form.username }}
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                <!-- <label for="password" class="col-sm-2 col-form-label">Password</label> -->
+                <label for="{{ login_form.password.id_for_label }}" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
-                    <input id="password" name="password" type="password" class="form-control">
+                    <!-- <input id="password" name="password" type="password" class="form-control"> -->
+                    {{ login_form.password }}
                 </div>
             </div>
         </form>
