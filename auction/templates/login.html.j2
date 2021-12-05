@@ -4,7 +4,8 @@
 <div class="card">
     <h5 class="card-header">Login</h5>
     <div class="card-body">
-        <form action="post">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
             <div class="mb-3 row">
                 <!-- <label for="username" class="col-sm-2 col-form-label">Username</label> -->
                 <label for="{{ login_form.username.id_for_label }}" class="col-sm-2 col-form-label">Username</label>
@@ -21,6 +22,7 @@
                     {{ login_form.password }}
                 </div>
             </div>
+            <button type="submit" class="btn btn-primary">Sign-in</button>
         </form>
     </div>
 </div>
