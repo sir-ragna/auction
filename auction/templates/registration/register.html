@@ -14,7 +14,7 @@
                         class="form-control" maxlength="150">
                     {% if form.username.errors %}
                         {% for err in form.username.errors %}
-                            <small class="text-muted">{{ err }}</small>
+                            <small class="text-muted">{{ err }}</small><br>
                         {% endfor %}
                     {% endif %}
                 </div>
@@ -27,7 +27,7 @@
                         class="form-control" maxlength="254" required>
                     {% if form.email.errors %}
                         {% for err in form.email.errors %}
-                            <small class="text-muted">{{ err }}</small>
+                            <small class="text-muted">{{ err }}</small><br>
                         {% endfor %}
                     {% endif %} 
                 </div>
@@ -40,7 +40,7 @@
                         class="form-control" maxlength="150">
                     {% if form.first_name.errors %}
                         {% for err in form.first_name.errors %}
-                            <small class="text-muted">{{ err }}</small>
+                            <small class="text-muted">{{ err }}</small><br>
                         {% endfor %}
                     {% endif %} 
                 </div>
@@ -53,7 +53,7 @@
                         class="form-control" maxlength="150">
                     {% if form.last_name.errors %}
                         {% for err in form.last_name.errors %}
-                            <small class="text-muted">{{ err }}</small>
+                            <small class="text-muted">{{ err }}</small><br>
                         {% endfor %}
                     {% endif %} 
                 </div>
@@ -65,7 +65,7 @@
                         class="form-control" maxlength="150"> 
                     {% if form.password.errors %}
                         {% for err in form.password.errors %}
-                            <small class="text-muted">{{ err }}</small>
+                            <small class="text-muted">{{ err }}</small><br>
                         {% endfor %}
                     {% endif %} 
                 </div>

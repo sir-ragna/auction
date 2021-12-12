@@ -25,20 +25,3 @@ def register(request):
         form = forms.UserRegistrationForm()
     return render(request, 'registration/register.html', {'form': form})
 
-# def login(request):
-#     if request.method == 'POST':
-#         login_form = forms.UserLoginForm(request.POST)
-#         print("test1")
-#         if login_form.is_valid():
-#             print("test2")
-#             username = login_form.cleaned_data['username']
-#             password = login_form.cleaned_data['password']
-#             user = auth.authenticate(request, username=username, password=password)
-#             if user is not None:
-#                 auth.login(request, user)
-#                 return HttpResponseRedirect('index')
-#             else:
-#                 messages.error(request, "Wrong username or password")
-#     else:    
-#         login_form = forms.UserLoginForm()
-#     return render(request, "login.html.j2", {'login_form': login_form})
