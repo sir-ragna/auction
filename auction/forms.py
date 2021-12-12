@@ -15,9 +15,7 @@ class UserLoginForm(ModelForm):
             'username': TextInput(
                 attrs={"placeholder":"username", "class":"form-control"}
             ),
-            'password': PasswordInput(
-                attrs={"class": "form-control"}
-            ),
+            'password': PasswordInput(attrs={"class": "form-control"}),
         }
 
 class UserRegistrationForm(ModelForm):
