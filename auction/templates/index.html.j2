@@ -5,7 +5,8 @@
     <small class="text-muted">Welcome back <b>{{ user.username }}</b>
     (<a href="{% url 'logout' %}">logout</a>)</small>
 {% else %}
-    <a href="{% url 'login' %}">login</a>
+    <a href="{% url 'login' %}">login</a><br>
+    <a href="{% url 'register' %}">register</a>
 {% endif %}
 <h1>Welcome to Cotton Road</h1>
 <p>Buy your average shit on <b>the darkweb</b> <sup>at hugely inflated prices</sup><p>
