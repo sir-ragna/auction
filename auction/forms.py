@@ -1,7 +1,9 @@
 from django.forms import ModelForm, TextInput, PasswordInput
 from django.contrib.auth.password_validation import validate_password
-from django.contrib.auth.models import User
 from django import forms
+
+#from django.contrib.auth.models import User
+from .models import User
 
 """
 Authentication forms based upon the default user model.
