@@ -8,6 +8,11 @@ class Listing(models.Model):
     date_modified = models.DateTimeField(auto_now=True, null=False)
     starting_bid = models.PositiveIntegerField(null=False)
     seller = models.ForeignKey('User', on_delete=models.CASCADE)
+    # Idea
+    # Have a 'buyer' field. If it is 'null' the listing is active.
+    # Otherwise it becomes an inactive listing.
+    # Maybe listings can also expire? 
+    #   -> Only PREMIUM sellers have access to very long expiration times.
     
     def __str__(self):
         return f"{self.id}:{self.title}"
@@ -16,6 +21,7 @@ class Listing(models.Model):
 
 class User(AbstractUser):
     watchlist = models.ManyToManyField(Listing)
+    # is_premium user
     def __repr__(self):
         return f"<User {self.username}>"
 

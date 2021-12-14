@@ -4,13 +4,11 @@
 {% block content %}
 
 <div class="row justify-content-between">
-
-<div class="col col-auto"><a href="{% url 'index' %}">Return to the home page</a></div>
-
-<div class="col col-auto"><a href="{% url 'logout' %}'">Logout</a></div>
+    <div class="col col-auto"><a href="{% url 'index' %}">Return to the home page</a></div>
+    <div class="col col-auto"><a href="{% url 'logout' %}'">Logout</a></div>
 </div>
 
-<form action="" method="post">
+<form action="{% url 'create_listing' %}" method="post">
 {% csrf_token %}
 <h3>Create a new auction listing</h3>
 <label for="{{ form.title.id_for_label }}" class="mt-2">Title</label>

@@ -1,5 +1,4 @@
 
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
@@ -13,8 +12,8 @@ from . import forms
 from . import models
 
 def index(request):
-    top_five = models.Listing.objects.order_by("-id")[:5]
-    return render(request, "index.html.j2", {'top_five': top_five})
+    last_five = models.Listing.objects.order_by("-date_created")[:5]
+    return render(request, "index.html.j2", {'last_five': last_five})
 
 def register(request):
     if request.method == 'POST':
@@ -41,3 +40,13 @@ def create_listing(request):
     else:
         form = forms.ListingForm()
     return render(request, 'create_listing.html.j2', {'form': form})
+
+@login_required()
+def show_listing(request, id):
+    listings = models.Listing.objects.filter(id=id)
+    if len(listings) > 0:
+        return render(request, 'show_listing.html.j2', {'listing': listings[0]})
+    else:
+        messages.error(request, "Could not find auction")
+        return redirect('index')
+
