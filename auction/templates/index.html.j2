@@ -11,8 +11,20 @@
 <h1>Welcome to Amber Road</h1>
 <p>Buy your average shit on <b>the darkweb</b> <sup>at hugely inflated prices</sup><p>
 {% if user.is_authenticated %}
-    <a href="{% url 'create_listing' %}"><button class="btn btn-primary">Create a listing</button></a>
+    <a href="{% url 'create_listing' %}" class="btn btn-primary">Create a listing</a>
 {% else %}
 <p>Sign in or register a new account so you can start trading with dozens of people like yourself.</p>
 {% endif %}
+<h3>Most 5 recent listings</h3>
+
+{% for listing in top_five %}
+<div class="col-6 border border-primary my-4 p-2 shadow bg-info bg-opacity-50"">
+    <a href="permalink"><h5>{{ listing.title }}</h5></a>
+    <small class="text-muted">Created: {{ listing.date_created }}</small>
+    <p><i>{{ listing.description }}</i></p>
+    <p>Starting price: <b>{{ listing.starting_bid }}</b></p>
+    <span>Seller: <b>{{ listing.seller }}</b></span>
+</div>
+{% endfor %}
+
 {% endblock content %}

@@ -10,9 +10,11 @@ from django.contrib import auth
 # having collisions with other functions called 'login' or 'authenticate'.
 
 from . import forms
+from . import models
 
 def index(request):
-    return render(request, "index.html.j2")
+    top_five = models.Listing.objects.order_by("-id")[:5]
+    return render(request, "index.html.j2", {'top_five': top_five})
 
 def register(request):
     if request.method == 'POST':
