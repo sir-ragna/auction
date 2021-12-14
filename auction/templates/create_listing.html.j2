@@ -1,0 +1,39 @@
+{% extends "base.html.j2" %}
+
+
+{% block content %}
+
+<div class="row justify-content-between">
+
+<div class="col col-auto"><a href="{% url 'index' %}">Return to the home page</a></div>
+
+<div class="col col-auto"><a href="{% url 'logout' %}'">Logout</a></div>
+</div>
+
+<form action="" method="post">
+{% csrf_token %}
+<h3>Create a new auction listing</h3>
+<label for="{{ form.title.id_for_label }}" class="mt-2">Title</label>
+{{ form.title }}
+{% if form.title.errors %}
+    {% for err in form.title.errors %}
+        <small class="text-muted">{{ err }}</small><br>
+    {% endfor %}
+{% endif %}
+<label for="{{ form.description.id_for_label }}" class="mt-2">Description</label>
+{{ form.description }}
+{% if form.description.errors %}
+    {% for err in form.description.errors %}
+        <small class="text-muted">{{ err }}</small><br>
+    {% endfor %}
+{% endif %}
+<label for="{{ form.starting_bid.id_for_label }}"  class="mt-2">Starting bid</label>
+{{ form.starting_bid }}
+{% if form.starting_bid.errors %}
+    {% for err in form.starting_bid.errors %}
+        <small class="text-muted">{{ err }}</small><br>
+    {% endfor %}
+{% endif %}
+<button type="submit" class="mt-2 btn btn-primary">Submit</button>
+</form>
+{% endblock content %}

@@ -7,4 +7,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('register', views.register, name="register"),
     path('', views.index, name="index"),
+    path('listing', views.create_listing, name="create_listing")
 ]
