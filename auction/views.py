@@ -1,4 +1,4 @@
-
+from django.http import Http404
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
@@ -50,3 +50,10 @@ def show_listing(request, id):
         messages.error(request, "Could not find auction")
         return redirect('index')
 
+@login_required()
+def show_profile(request, id):
+    users = models.Listing.objects.filter(id=id)
+    if len(users) > 0:
+        return render(request, 'show_profile.html.j2', {'listing': users[0]})
+    else:
+        return Http404("User not found")

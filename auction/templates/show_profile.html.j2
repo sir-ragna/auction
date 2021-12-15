@@ -1,0 +1,49 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+
+<div class="row justify-content-between">
+    <div class="col-auto">
+        <h1>The profile of <q>{{ user.username }}</q></h1>
+    </div>
+    <div class="col-auto">
+        <!-- if USER == current user -->
+        <a href="#" class="btn btn-primary">Edit Profile</a>
+        <!-- endif -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="bg-warning" style="color:white;width:200px;height:200px">
+            profile image
+        </div>
+    </div>
+    <div class="col-6">    
+        <table class="table">
+        <tr>
+            <th>Username</th>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <th>Last name</th>
+            <td>{{ user.last_name }}</td>
+        </tr>
+        <tr>
+            <th>First name</th>
+            <td>{{ user.first_name }}</td>
+        </tr>
+        </table>
+    </div>
+</div>
+
+<div class="m-4 p-2 row border border-primary">
+This is a good reseller.<br>
+<small>Comment by User</small>
+</div>
+
+<div class="m-4 p-2 row border border-primary">
+I don't like this guy.<br>
+<small>Comment by another user</small>
+</div>
+
+{% endblock content %}
